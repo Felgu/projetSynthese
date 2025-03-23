@@ -3,9 +3,8 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer'; 
 import Image from 'next/image';
 import { useState } from 'react';
-import TemplateCard from '@/components/TemplateCard';
 
-const Home = () => {
+const Page = () => {
   const [hovered, setHovered] = useState(null);
 
   const templates = [
@@ -32,13 +31,17 @@ const Home = () => {
           {templates.map((template) => (
             <div
               key={template.id}
-              className={`relative p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 transform ${hovered === template.id ? 'bg-yellow-100' : 'bg-white'}`}
+              className={`relative p-6 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 transform hover:bg-yellow-100`}
               onMouseEnter={() => setHovered(template.id)}
               onMouseLeave={() => setHovered(null)}
             >
-              <Image src={template.image} alt={template.name} width={300} height={200} className="rounded-lg mb-4" />
-              <h3 className="text-xl font-bold">{template.name}</h3>
+              <div className="group relative p-6 rounded-lg shadow-lg transform transition-all duration-300">
+              <div className="group-hover:scale-105 group-hover:bg-yellow-100">
+              <Image src={template.image} alt={'Image represantant le gabarit ${template.name'} width={300} height={200} className="rounded-lg mb-4" />
+              <h3 className="text-xl font-bold text-black">{template.name}</h3>
               <p className="text-gray-500 mt-2">{template.description}</p>
+              </div>
+              </div>
             </div>
           ))}
         </div>
@@ -49,4 +52,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Page;
