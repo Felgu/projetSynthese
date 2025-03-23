@@ -1,8 +1,8 @@
-// app/signup/page.js
+'use client'
 import { useState } from 'react';
-import { useRouter } from 'next/router';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { useRouter, usePathname, useSearchParams } from 'next/navigation';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const Signup = () => {
   const [email, setEmail] = useState('');
@@ -10,8 +10,8 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Ajout de l'état de chargement
-  const router = useRouter(); // Utilisation du router pour la redirection
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -57,13 +57,13 @@ const Signup = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-50 min-h-screen text-xl">
       {/* Navbar */}
       <Navbar />
 
       {/* Section d'inscription */}
       <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl font-bold text-blue-700">Créer un compte</h1>
+        <h1 className="text-4xl font-bold text-[#154c79]">Créer un compte</h1>
         <p className="text-lg text-gray-600 mt-4">Inscrivez-vous pour commencer à utiliser Notitia</p>
 
         {/* Formulaire d'inscription */}
@@ -91,7 +91,7 @@ const Signup = () => {
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
+              className="mt-5 p-5 w-full border border-gray-300 text-[#061724] rounded-lg"
               placeholder="Votre email"
             />
           </div>
@@ -107,7 +107,7 @@ const Signup = () => {
               required
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
+              className="mt-2 p-3 w-full text-[#061724] border border-gray-300 rounded-lg"
               placeholder="Votre mot de passe"
             />
           </div>
@@ -123,7 +123,7 @@ const Signup = () => {
               required
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="mt-2 p-3 w-full border border-gray-300 rounded-lg"
+              className="mt-2 p-3 w-full text-[#061724] border border-gray-300 rounded-lg"
               placeholder="Confirmer votre mot de passe"
             />
           </div>
@@ -133,7 +133,7 @@ const Signup = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className={`px-6 py-3 ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-700'} text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors`}
+              className={`px-6 py-3 ${isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#154c79]'} text-white font-semibold rounded-lg hover:bg-[#155679] transition-colors`}
             >
               {isLoading ? 'Chargement...' : 'S`inscrire'}
             </button>
@@ -141,7 +141,7 @@ const Signup = () => {
 
           <p className="mt-4 text-gray-600">
             Vous avez déjà un compte ?{' '}
-            <a href="/login" className="text-blue-700 hover:underline">
+            <a href="/login" className="text-[#79154c] hover:underline">
               Connectez-vous ici
             </a>
           </p>

@@ -77,7 +77,7 @@ const Contact = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-700 text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
+              className="px-6 py-3 bg-[#113d61] text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors"
             >
               Envoyer
             </button>

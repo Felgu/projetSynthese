@@ -19,14 +19,14 @@ const Page = () => {
       <Navbar />
       {/* section d`introduction*/}
       <div className="text-center py-12 bg-blue-100">
-        <h1 className="text-4xl font-bold text-blue-700">Bienvenue sur Notitia</h1>
+        <h1 className="text-4xl font-bold text-[#0b263d]">Bienvenue sur Notitia</h1>
         <p className="text-lg text-gray-700 mt-4">Votre application de prise de notes médicales, simple, ergonomique et personnalisable.</p>
       </div>
       {/* onglet de la bare de navigation*/}
 
       {/*section des gabarits */}
       <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-semibold text-blue-700 text-center">Gabarits disponibles</h2>
+        <h2 className="text-2xl font-semibold text-[#0b263d] text-center">Gabarits disponibles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {templates.map((template) => (
             <div
