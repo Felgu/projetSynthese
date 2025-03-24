@@ -13,12 +13,12 @@ const Navbar = () => {
           <Image
             src="/assets/notitia.png" 
             alt="Logo"
-            width={50}
-            height={50}
-            className="text-white"
+            width={80}
+            height={80}
+            className="text-white rounded-lg"
           />
-          <span className="text-white text-2xl font-semibold">Notitia</span>
-          <FaHospital size={30} className="text-white" />
+          <span className="text-white text-4xl font-semibold">Notitia</span>
+          {/* <FaHospital size={30} className="text-white" /> */}
         </Link>
 
         {/* Liens de navigation */}
@@ -26,8 +26,8 @@ const Navbar = () => {
           <Link href="/" className="text-white hover:text-yellow-400">Accueil</Link>
           <Link href="/about" className="text-white hover:text-yellow-400">À propos</Link>
           <Link href="/contact" className="text-white hover:text-yellow-400">Contact</Link>
-          <Link href="/login" className="text-white hover:text-yellow-400">Se connecter</Link>
-          <Link href="/signup" className="text-white hover:text-yellow-400">Créer un compte</Link>
+          <Link href="/login" className="text-white bg-[#79154c] p-4 rounded-lg hover:text-[#ffffff] hover:bg-[#e28743]">Se connecter</Link>
+          <Link href="/signup" className="text-white bg-[#747915] p-4 rounded-lg hover:text-[#ffffff]">Créer un compte</Link>
         </div>
       </div>
     </nav>

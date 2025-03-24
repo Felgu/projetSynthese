@@ -53,7 +53,7 @@ const Login = () => {
 
       {/* Section de login */}
       <div className="container mx-auto px-4 py-12 text-center">
-        <h1 className="text-4xl font-bold text-blue-700">Connexion</h1>
+        <h1 className="text-4xl font-bold text-[#154c79]">Connexion</h1>
         <p className="text-lg text-gray-600 mt-4">Connectez-vous à votre compte</p>
 
         {/* Formulaire de connexion */}
@@ -105,8 +105,8 @@ const Login = () => {
               type="submit"
               disabled={isLoading} // Désactive le bouton pendant le chargement
               className={`px-6 py-3 ${
-                isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-blue-700'
-              } text-white font-semibold rounded-lg hover:bg-blue-800 transition-colors`}
+                isLoading ? 'bg-gray-500 cursor-not-allowed' : 'bg-[#154c79]'
+              } text-white font-semibold rounded-lg hover:bg-[#1e81b0] transition-colors`}
             >
               {isLoading ? 'Chargement...' : 'Se connecter'}
             </button>
