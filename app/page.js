@@ -15,7 +15,10 @@ const Page = () => {
     { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/file.svg', link: '/chirurgical' },
     { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/infection.svg', link: '/infectionUrinaire' },
     { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/cephalee.svg', link: '/gabarit-cephalee' },
-    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/sante-preventive.svg', link: '/preventive' }
+    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/sante-preventive.svg', link: '/preventive' },
+    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', image: '/images/diabete.svg', link: '/diabete' },
+    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/pediatrique.svg', link: '/pediatrique' },
+    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psy.svg', link: '/depression-anxiete' },
   ];
 
   return (
@@ -23,8 +26,8 @@ const Page = () => {
       {/* Ajout du Navbar */}
       <Navbar />
       {/* Section d'introduction */}
-      <div className="text-center py-12 bg-blue-100">
-        <h1 className="text-4xl font-bold text-[#0b263d]">Gabarits cliniques adaptables </h1>
+      <div className="text-center py-12 bg-[#38a3a5]">
+        <h1 className="text-4xl font-bold text-[#0b263d]">Gabarits cliniques adaptables</h1>
         <p className="text-lg text-gray-700 mt-4">Votre application de prise de notes médicales, simple, ergonomique et personnalisable.</p>
       </div>
 

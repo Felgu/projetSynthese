@@ -4,7 +4,7 @@ import {FaHospital} from 'react-icons/fa';
 
 const Navbar = () => {
   return (
-    <nav className="bg-[#154c79] p-4 shadow-md">
+    <nav className="bg-[#22577a] p-4 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
       
         {/* Logo avec un lien */}
