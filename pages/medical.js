@@ -4,35 +4,32 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const GabaritMedical = () => {
-  // State pour les champs du formulaire
+const GabaritSoins = () => {
   const [formData, setFormData] = useState({
     patientName: '',
     dateOfBirth: '',
-    diagnosis: '',
-    medicalHistory: '',
-    currentMedications: '',
-    allergies: '',
-    vitalSigns: {
+    dateSoins: '',
+    soinsEffectues: '',
+    observations: '',
+    traitementsAdministres: '',
+    signesVitaux: {
       temperature: '',
       pa: '',
       fc: '',
       fr: '',
       spo2: '',
     },
-    symptoms: [],
-    observations: '',
-    treatmentPlan: '',
+    actionInfirmiere: '',
+    prochaineEvaluation: '',
   });
 
-  // Fonction pour mettre à jour les champs du formulaire
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    if (name in formData.vitalSigns) {
+    if (name in formData.signesVitaux) {
       setFormData({
         ...formData,
-        vitalSigns: {
-          ...formData.vitalSigns,
+        signesVitaux: {
+          ...formData.signesVitaux,
           [name]: type === 'checkbox' ? checked : value,
         },
       });
@@ -44,235 +41,192 @@ const GabaritMedical = () => {
     }
   };
 
-  // Fonction pour soumettre le formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Données soumises:', formData);
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Navbar />
-      
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Médical</h1>
+    <div className="bg-[#173A47] min-h-screen">
+      {/* <Navbar /> */}
+
+      <div className="container bg-[#173A47] mx-auto px-6 py-12">
+        <h1 className="text-4xl font-semibold text-[#0b263d] text-center mb-6">Gabarit Soins Infirmiers</h1>
 
         {/* Formulaire interactif */}
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-32 bg-[#46a2c3] p-6">
           {/* Nom du patient */}
-          <div>
-            <label className="block text-gray-700">Nom du patient</label>
+          <div className='bg-[#173A47] text-xl space-y-8' >
+            <label className="block text-gray-700 text-xl">Nom du patient</label>
             <input
               type="text"
               name="patientName"
               value={formData.patientName}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
               placeholder="Nom du patient"
             />
           </div>
 
           {/* Date de naissance */}
           <div>
-            <label className="block text-gray-700">Date de naissance</label>
+            <label className="block text-gray-700 text-xl">Date de naissance</label>
             <input
               type="date"
               name="dateOfBirth"
               value={formData.dateOfBirth}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             />
           </div>
 
-          {/* Diagnostic */}
+          {/* Date des soins */}
           <div>
-            <label className="block text-gray-700">Diagnostic</label>
+            <label className="block text-gray-700 text-xl">Date des soins</label>
             <input
-              type="text"
-              name="diagnosis"
-              value={formData.diagnosis}
+              type="date"
+              name="dateSoins"
+              value={formData.dateSoins}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              placeholder="Ex: Diabète de type 2"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             />
           </div>
 
-          {/* Historique médical */}
+          {/* Soins effectués */}
           <div>
-            <label className="block text-gray-700">Historique médical</label>
+            <label className="block text-gray-700 text-xl">Soins effectués</label>
             <textarea
-              name="medicalHistory"
-              value={formData.medicalHistory}
+              name="soinsEffectues"
+              value={formData.soinsEffectues}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Antécédents médicaux du patient"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+              rows="7"
+              placeholder="Détaillez les soins effectués (pansement, injection, etc.)"
             />
           </div>
 
-          {/* Médicaments actuels */}
+          {/* Observations */}
           <div>
-            <label className="block text-gray-700">Médicaments actuels</label>
+            <label className="block text-gray-700 text-xl">Observations</label>
             <textarea
-              name="currentMedications"
-              value={formData.currentMedications}
+              name="observations"
+              value={formData.observations}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Médicaments actuellement pris par le patient"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+              rows="7"
+              placeholder="Observations spécifiques concernant l'état du patient"
             />
           </div>
 
-          {/* Allergies */}
+          {/* Traitements administrés */}
           <div>
-            <label className="block text-gray-700">Allergies</label>
-            <input
-              type="text"
-              name="allergies"
-              value={formData.allergies}
+            <label className="block text-gray-700 text-xl">Traitements administrés</label>
+            <textarea
+              name="traitementsAdministres"
+              value={formData.traitementsAdministres}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              placeholder="Ex: Pénicilline"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+              rows="7"
+              placeholder="Détails des traitements administrés au patient (médicaments, doses, fréquence)"
             />
           </div>
 
           {/* Signes vitaux */}
           <div className="mt-6">
-            <h2 className="text-xl font-semibold text-[#0b263d]">Signes vitaux</h2>
-            <div className="grid grid-cols-2 gap-4 mt-4">
+            <h2 className="text-2xl font-semibold text-[#0b263d]">Signes vitaux</h2>
+            <div className="grid grid-cols-2 gap-6 mt-4">
               <div>
-                <label className="block text-gray-700">Température (°C)</label>
+                <label className="block text-gray-700 text-xl">Température (°C)</label>
                 <input
                   type="number"
                   name="temperature"
-                  value={formData.vitalSigns.temperature}
+                  value={formData.signesVitaux.temperature}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
                   placeholder="Ex: 37.5"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Pression artérielle</label>
+                <label className="block text-gray-700 text-xl">Pression artérielle</label>
                 <input
                   type="text"
                   name="pa"
-                  value={formData.vitalSigns.pa}
+                  value={formData.signesVitaux.pa}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
                   placeholder="Ex: 120/80"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Fréquence cardiaque</label>
+                <label className="block text-gray-700 text-xl">Fréquence cardiaque</label>
                 <input
                   type="number"
                   name="fc"
-                  value={formData.vitalSigns.fc}
+                  value={formData.signesVitaux.fc}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
                   placeholder="Ex: 80 bpm"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Fréquence respiratoire</label>
+                <label className="block text-gray-700 text-xl">Fréquence respiratoire</label>
                 <input
                   type="number"
                   name="fr"
-                  value={formData.vitalSigns.fr}
+                  value={formData.signesVitaux.fr}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
                   placeholder="Ex: 18/min"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">SpO2 (%)</label>
+                <label className="block text-gray-700 text-xl">SpO2 (%)</label>
                 <input
                   type="number"
                   name="spo2"
-                  value={formData.vitalSigns.spo2}
+                  value={formData.signesVitaux.spo2}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
                   placeholder="Ex: 98%"
                 />
               </div>
             </div>
           </div>
 
-          {/* Symptômes */}
+          {/* Action infirmière */}
           <div>
-            <h2 className="text-xl font-semibold text-[#0b263d]">Symptômes</h2>
-            <div className="flex flex-wrap gap-4 mt-4">
-              <div>
-                <input
-                  type="checkbox"
-                  name="symptoms"
-                  value="Fièvre"
-                  checked={formData.symptoms.includes('Fièvre')}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <label>Fièvre</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="symptoms"
-                  value="Toux"
-                  checked={formData.symptoms.includes('Toux')}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <label>Toux</label>
-              </div>
-              <div>
-                <input
-                  type="checkbox"
-                  name="symptoms"
-                  value="Fatigue"
-                  checked={formData.symptoms.includes('Fatigue')}
-                  onChange={handleChange}
-                  className="mr-2"
-                />
-                <label>Fatigue</label>
-              </div>
-            </div>
-          </div>
-
-          {/* Observations */}
-          <div>
-            <label className="block text-gray-700">Observations</label>
+            <label className="block text-gray-700 text-xl">Action infirmière</label>
             <textarea
-              name="observations"
-              value={formData.observations}
+              name="actionInfirmiere"
+              value={formData.actionInfirmiere}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Ex: Observations cliniques supplémentaires"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+              rows="7"
+              placeholder="Actions spécifiques réalisées par l'infirmier (éducation, conseils, suivi)"
             />
           </div>
 
-          {/* Plan de traitement */}
+          {/* Prochaine évaluation */}
           <div>
-            <label className="block text-gray-700">Plan de traitement</label>
-            <textarea
-              name="treatmentPlan"
-              value={formData.treatmentPlan}
+            <label className="block text-gray-700 text-xl">Prochaine évaluation</label>
+            <input
+              type="date"
+              name="prochaineEvaluation"
+              value={formData.prochaineEvaluation}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Ex: Prescription de médicaments, suivi"
+              className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             />
           </div>
 
           {/* Bouton de soumission */}
-          <div className="mt-6">
+          <div className="mt-8 text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-[#173A47] transition-colors"
             >
               Soumettre
             </button>
@@ -280,9 +234,9 @@ const GabaritMedical = () => {
         </form>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
-export default GabaritMedical;
+export default GabaritSoins;
