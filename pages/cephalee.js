@@ -1,5 +1,5 @@
-"use client"; // Utilisation de la fonctionnalité client-side de Next.js
-
+"use client"; 
+// Utilisation de la fonctionnalité client-side de Next.js
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -41,7 +41,6 @@ const GabaritCephalee = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <Navbar />
-      
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Céphalée</h1>
 
