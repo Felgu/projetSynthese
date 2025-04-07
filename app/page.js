@@ -35,8 +35,10 @@ const Page = () => {
       </div>
 
       {/* Section des gabarits */}
-      <div className="container mx-auto px-4">
-        <h2 className="text-2xl font-semibold text-[#0b263d] text-center">Gabarits disponibles</h2>
+      <div className="container mx-auto px-4 bg-red-100">
+        <h2 className="text-2xl font-semibold text-[#0b263d] text-center">
+          Gabarits disponibles
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {templates.map((template) => (
             <div
@@ -46,13 +48,13 @@ const Page = () => {
               onMouseLeave={() => setHovered(null)}
             >
               <Link href={template.link}>
-                <div className="group relative p-6 rounded-lg shadow-lg transform transition-all duration-300">
-                  <div className="group-hover:scale-105 group-hover:bg-yellow-100">
+                <div className="group relative p-6 group:bg-blue-100 rounded-lg shadow-lg transform transition-all duration-300">
+                  <div className="group-hover:scale-105 group-hover:bg-blue-300">
                     <Image 
                       src={template.image} 
                       alt={`Image représentant le gabarit ${template.name}`} 
                       width={300} 
-                      height={200} 
+                      height={300} 
                       className="rounded-lg mb-4" 
                     />
                     <h3 className="text-xl font-bold text-black">{template.name}</h3>

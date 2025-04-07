@@ -1,11 +1,8 @@
 "use client"; // Utilisation de la fonctionnalité client-side de Next.js
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
 const GabaritChirurgical = () => {
-  // State pour les champs du formulaire
   const [formData, setFormData] = useState({
     typeChirurgie: '',
     dateChirurgie: '',
@@ -23,7 +20,6 @@ const GabaritChirurgical = () => {
     recommandations: '',
   });
 
-  // Fonction pour mettre à jour les champs du formulaire
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     if (name in formData.signesVitaux) {
@@ -42,62 +38,58 @@ const GabaritChirurgical = () => {
     }
   };
 
-  // Fonction pour soumettre le formulaire
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Données soumises:', formData);
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      {/* <Navbar /> */}
-      
-      <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Chirurgical</h1>
+    <div className="bg-gray-100 min-h-screen font-sans">
+      <div className="container mx-auto px-6 py-16 bg-white shadow-xl rounded-lg">
+        <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-8">Gabarit Chirurgical</h1>
 
-        {/* Formulaire interactif */}
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-8">
           {/* Type de chirurgie */}
           <div>
-            <label className="block text-gray-700">Type de Chirurgie</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Type de Chirurgie</label>
             <input
               type="text"
               name="typeChirurgie"
               value={formData.typeChirurgie}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Ex: Chirurgie abdominale"
             />
           </div>
 
           {/* Date de chirurgie */}
           <div>
-            <label className="block text-gray-700">Date de Chirurgie</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Date de Chirurgie</label>
             <input
               type="date"
               name="dateChirurgie"
               value={formData.dateChirurgie}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
           {/* Anesthésie */}
           <div>
-            <label className="block text-gray-700">Anesthésie utilisée</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Anesthésie utilisée</label>
             <input
               type="text"
               name="anesthesie"
               value={formData.anesthesie}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Ex: Anesthésie générale"
             />
           </div>
 
           {/* Douleur post-opératoire */}
           <div>
-            <label className="block text-gray-700">Douleur post-opératoire (sur 10)</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Douleur post-opératoire (sur 10)</label>
             <input
               type="number"
               name="douleurPostOp"
@@ -105,71 +97,71 @@ const GabaritChirurgical = () => {
               onChange={handleChange}
               min="0"
               max="10"
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Notez la douleur de 0 à 10"
             />
           </div>
 
           {/* Signes vitaux */}
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold text-[#0b263d]">Signes vitaux</h2>
-            <div className="grid grid-cols-2 gap-4 mt-4">
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold text-[#0b263d] mb-4">Signes vitaux</h2>
+            <div className="grid grid-cols-2 gap-6">
               <div>
-                <label className="block text-gray-700">Température (°C)</label>
+                <label className="block text-xl text-[#0b263d] font-medium mb-2">Température (°C)</label>
                 <input
                   type="number"
                   name="temperature"
                   value={formData.signesVitaux.temperature}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 37.5"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Pression artérielle</label>
+                <label className="block text-xl text-[#0b263d] font-medium mb-2">Pression artérielle</label>
                 <input
                   type="text"
                   name="pa"
                   value={formData.signesVitaux.pa}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 120/80"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Fréquence cardiaque</label>
+                <label className="block text-xl text-[#0b263d] font-medium mb-2">Fréquence cardiaque</label>
                 <input
                   type="number"
                   name="fc"
                   value={formData.signesVitaux.fc}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 80 bpm"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">Fréquence respiratoire</label>
+                <label className="block text-xl text-[#0b263d] font-medium mb-2">Fréquence respiratoire</label>
                 <input
                   type="number"
                   name="fr"
                   value={formData.signesVitaux.fr}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 18/min"
                 />
               </div>
 
               <div>
-                <label className="block text-gray-700">SpO2 (%)</label>
+                <label className="block text-xl text-[#0b263d] font-medium mb-2">SpO2 (%)</label>
                 <input
                   type="number"
                   name="spo2"
                   value={formData.signesVitaux.spo2}
                   onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 98%"
                 />
               </div>
@@ -177,10 +169,10 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Complications */}
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold text-[#0b263d]">Complications</h2>
-            <div className="flex flex-wrap gap-4">
-              <div>
+          <div className="mt-8">
+            <h2 className="text-2xl font-semibold text-[#0b263d] mb-4">Complications</h2>
+            <div className="flex flex-wrap gap-6">
+              <div className="flex items-center">
                 <input
                   type="checkbox"
                   name="complications"
@@ -189,9 +181,9 @@ const GabaritChirurgical = () => {
                   onChange={handleChange}
                   className="mr-2"
                 />
-                <label>Infection</label>
+                <label className="text-lg">Infection</label>
               </div>
-              <div>
+              <div className="flex items-center">
                 <input
                   type="checkbox"
                   name="complications"
@@ -200,9 +192,9 @@ const GabaritChirurgical = () => {
                   onChange={handleChange}
                   className="mr-2"
                 />
-                <label>Hémorragie</label>
+                <label className="text-lg">Hémorragie</label>
               </div>
-              <div>
+              <div className="flex items-center">
                 <input
                   type="checkbox"
                   name="complications"
@@ -211,50 +203,48 @@ const GabaritChirurgical = () => {
                   onChange={handleChange}
                   className="mr-2"
                 />
-                <label>Trouble respiratoire</label>
+                <label className="text-lg">Trouble respiratoire</label>
               </div>
             </div>
           </div>
 
           {/* Soins post-opératoires */}
           <div>
-            <label className="block text-gray-700">Soins post-opératoires</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Soins post-opératoires</label>
             <textarea
               name="soinsPostOp"
               value={formData.soinsPostOp}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               rows="4"
-              placeholder="Ex: Surveillance de la plaie, administration des analgésiques, suivi des signes vitaux"
+              placeholder="Ex: Surveillance de la plaie, administration des analgésiques"
             />
           </div>
 
           {/* Recommandations */}
           <div>
-            <label className="block text-gray-700">Recommandations</label>
+            <label className="block text-xl text-[#0b263d] font-medium mb-2">Recommandations</label>
             <textarea
               name="recommandations"
               value={formData.recommandations}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               rows="4"
               placeholder="Ex: Repos, suivi médical dans les 48 heures"
             />
           </div>
 
           {/* Bouton de soumission */}
-          <div className="mt-6">
+          <div className="mt-8 text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
             >
               Soumettre
             </button>
           </div>
         </form>
       </div>
-
-      {/* <Footer /> */}
     </div>
   );
 };
