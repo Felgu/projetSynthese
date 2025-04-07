@@ -67,7 +67,7 @@ const Signup = () => {
         <p className="text-lg text-gray-600 mt-4">Inscrivez-vous pour commencer à utiliser Notitia</p>
 
         {/* Formulaire d'inscription */}
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6 max-w-lg mx-auto">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6 max-w-lg mx-auto bg-primary">
           {/* Affichage des erreurs */}
           {error && (
             <div className="bg-red-200 text-red-700 p-4 rounded-lg mb-4">

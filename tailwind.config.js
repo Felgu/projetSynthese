@@ -2,14 +2,12 @@ module.exports = {
   content: [
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './public/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}', // Assurez-vous que les chemins sont corrects
   ],
   theme: {
     extend: {
       colors: {
-        primary: '#13446d',
-        secondary: '#154c79',
+        primary: '#13446d', // Assurez-vous que cette couleur est correctement définie
       },
     },
   },

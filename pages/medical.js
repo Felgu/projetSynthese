@@ -221,19 +221,18 @@ const GabaritSoins = () => {
               className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             />
           </div>
-
           {/* Bouton de soumission */}
-          <div className="mt-8 text-center">
+          <div className="mt-28 text-center">
             <button
               type="submit"
-              className="px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-[#173A47] transition-colors"
+              className="px-12 py-6 bg-primary text-white font-semibold rounded-xl hover:bg-[#173A47] hover:text-lg transition-all duration-300 mx-auto"
             >
               Soumettre
             </button>
           </div>
+
         </form>
       </div>
-
       {/* <Footer /> */}
     </div>
   );
