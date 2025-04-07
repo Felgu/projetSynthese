@@ -1,8 +1,9 @@
+"use client";
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const GabaritDepression = () => {
+const Depression = () => {
   const [formData, setFormData] = useState({
     patientName: '',
     symptoms: '',
@@ -32,7 +33,7 @@ const GabaritDepression = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="text-center py-12 bg-blue-100">
         <h1 className="text-4xl font-bold text-[#0b263d]">Suivi Psychologique - Dépression et Anxiété</h1>
         <p className="text-lg text-gray-700 mt-4">Formulaire pour évaluer la dépression et l'anxiété du patient</p>
@@ -181,9 +182,9 @@ const GabaritDepression = () => {
         </div>
       </form>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
-export default GabaritDepression;
+export default Depression;

@@ -1,10 +1,7 @@
-"use client";  // Utilisation de la fonctionnalité client-side de Next.js
-
+"use client";  
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
-const GabaritInfectionUrinaire = () => {
+const InfectionUrinaire = () => {
   // State pour tous les champs du formulaire
   const [formData, setFormData] = useState({
     symptomes: [],
@@ -149,7 +146,7 @@ const GabaritInfectionUrinaire = () => {
 
           {/* Analyse de l'urine */}
           <div>
-            <label className="block text-gray-700">Analyse de l'urine</label>
+            <label className="block text-gray-700">Analyse de l`urine</label>
             <textarea
               name="analyseUrine"
               value={formData.analyseUrine}
@@ -243,4 +240,4 @@ const GabaritInfectionUrinaire = () => {
   );
 };
 
-export default GabaritInfectionUrinaire;
+export default InfectionUrinaire;

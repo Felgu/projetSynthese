@@ -50,10 +50,9 @@ const GabaritSoins = () => {
   };
 
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Navbar />
-      
-      <div className="container mx-auto px-4 py-12">
+    <div className="bg-gray-200 min-h-screen font-sans">
+      {/* <Navbar /> */}
+      <div className="container mx-auto px-6 py-16 shadow-xl rounded-lg ml-[500px]">
         <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Soins Infirmiers</h1>
 
         {/* Formulaire interactif */}
@@ -237,7 +236,7 @@ const GabaritSoins = () => {
         </form>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

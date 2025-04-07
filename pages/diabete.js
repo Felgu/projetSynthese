@@ -1,8 +1,7 @@
+"use client";
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
 
-const GabaritDiabete = () => {
+const Diabete = () => {
   const [formData, setFormData] = useState({
     patientName: '',
     glycemie: '',
@@ -22,7 +21,6 @@ const GabaritDiabete = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Tu peux ici gérer l'envoi des données ou la sauvegarde
     console.log(formData);
   };
 
@@ -130,4 +128,4 @@ const GabaritDiabete = () => {
   );
 };
 
-export default GabaritDiabete;
+export default Diabete;

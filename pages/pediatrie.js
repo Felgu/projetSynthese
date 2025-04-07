@@ -1,8 +1,9 @@
+"use client"
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const GabaritSuiviPediatrique = () => {
+const SuiviPediatrique = () => {
   const [formData, setFormData] = useState({
     patientName: '',
     age: '',
@@ -32,7 +33,7 @@ const GabaritSuiviPediatrique = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="text-center py-12 bg-blue-100">
         <h1 className="text-4xl font-bold text-[#0b263d]">Suivi Pédiatrique</h1>
         <p className="text-lg text-gray-700 mt-4">Formulaire de suivi pour les enfants selon la tranche d'âge</p>
@@ -181,9 +182,9 @@ const GabaritSuiviPediatrique = () => {
         </div>
       </form>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
-export default GabaritSuiviPediatrique;
+export default SuiviPediatrique;

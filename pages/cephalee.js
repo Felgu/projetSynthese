@@ -1,8 +1,7 @@
-"use client";                                                                           import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+"use client";
+import { useState } from 'react';
 
-const GabaritCephalee = () => {
+const Cephalee = () => {
   // State pour les champs du formulaire
   const [formData, setFormData] = useState({
     patientName: '',
@@ -38,7 +37,7 @@ const GabaritCephalee = () => {
 
   return (
     <div className="bg-gray-50 min-h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Céphalée</h1>
 
@@ -277,9 +276,9 @@ const GabaritCephalee = () => {
         </form>
       </div>
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
 
-export default GabaritCephalee;
+export default Cephalee;

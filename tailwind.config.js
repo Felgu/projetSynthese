@@ -1,6 +1,6 @@
 module.exports = {
   content: [
-    './app/**/*.{js,ts,jsx,}',
+    './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './public/**/*.{js,ts,jsx,tsx}',
@@ -9,11 +9,11 @@ module.exports = {
     extend: {
       colors: {
         primary: '#13446d',
-        secondary: '#154c79'
+        secondary: '#154c79',
       },
     },
   },
-  pluggins: [
+  plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography')
   ],

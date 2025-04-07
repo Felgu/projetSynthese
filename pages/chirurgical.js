@@ -1,5 +1,4 @@
-"use client"; // Utilisation de la fonctionnalité client-side de Next.js
-
+"use client";
 import { useState } from 'react';
 
 const GabaritChirurgical = () => {
@@ -44,14 +43,14 @@ const GabaritChirurgical = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen font-sans">
-      <div className="container mx-auto px-6 py-16 bg-white shadow-xl rounded-lg">
-        <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-8">Gabarit Chirurgical</h1>
+    <div className="bg-blue-50 min-h-screen font-sans p-4">
+      <div className="container mx-auto px-6 py-16 bg-red p-8 shadow-xl rounded-lg ml-[100px]">
+        <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-18">Gabarit Chirurgical</h1>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form onSubmit={handleSubmit} className="space-y-8 mx-auto max-w-4xl">
           {/* Type de chirurgie */}
-          <div>
-            <label className="block text-xl text-[#0b263d] font-medium mb-2">Type de Chirurgie</label>
+          <div className='flex flex-col'>
+            <label className="text-xl text-[#0b263d] font-medium mb-2">Type de Chirurgie</label>
             <input
               type="text"
               name="typeChirurgie"
@@ -63,8 +62,8 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Date de chirurgie */}
-          <div>
-            <label className="block text-xl text-[#0b263d] font-medium mb-2">Date de Chirurgie</label>
+          <div className='flex flex-col'>
+            <label className="text-xl text-[#0b263d] font-medium mb-2">Date de Chirurgie</label>
             <input
               type="date"
               name="dateChirurgie"
@@ -75,8 +74,8 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Anesthésie */}
-          <div>
-            <label className="block text-xl text-[#0b263d] font-medium mb-2">Anesthésie utilisée</label>
+          <div className='flex flex-col'>
+            <label className="text-xl text-[#0b263d] font-medium mb-2">Anesthésie utilisée</label>
             <input
               type="text"
               name="anesthesie"
@@ -88,7 +87,7 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Douleur post-opératoire */}
-          <div>
+          <div className='flex flex-col'>
             <label className="block text-xl text-[#0b263d] font-medium mb-2">Douleur post-opératoire (sur 10)</label>
             <input
               type="number"
@@ -104,10 +103,10 @@ const GabaritChirurgical = () => {
 
           {/* Signes vitaux */}
           <div className="mt-8">
-            <h2 className="text-2xl font-semibold text-[#0b263d] mb-4">Signes vitaux</h2>
-            <div className="grid grid-cols-2 gap-6">
-              <div>
-                <label className="block text-xl text-[#0b263d] font-medium mb-2">Température (°C)</label>
+            <h2 className="text-2xl font-semibold text-[#0b263d] mb-6">Signes vitaux</h2>
+            <div className="grid grid-cols-2 gap-8">
+              <div className='flex flex-col'>
+                <label className="text-lg text-[#0b263d] font-medium mb-2">Température (°C)</label>
                 <input
                   type="number"
                   name="temperature"
@@ -118,8 +117,8 @@ const GabaritChirurgical = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-xl text-[#0b263d] font-medium mb-2">Pression artérielle</label>
+              <div className='flex flex-col'>
+                <label className="text-xl text-[#0b263d] font-medium mb-2">Pression artérielle</label>
                 <input
                   type="text"
                   name="pa"
@@ -130,8 +129,8 @@ const GabaritChirurgical = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-xl text-[#0b263d] font-medium mb-2">Fréquence cardiaque</label>
+              <div className='flex flex-col'>
+                <label className="text-xl text-[#0b263d] font-medium mb-2">Fréquence cardiaque</label>
                 <input
                   type="number"
                   name="fc"
@@ -142,8 +141,8 @@ const GabaritChirurgical = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-xl text-[#0b263d] font-medium mb-2">Fréquence respiratoire</label>
+              <div className='flex flex-col'>
+                <label className="text-lg text-[#0b263d] font-medium mb-2">Fréquence respiratoire</label>
                 <input
                   type="number"
                   name="fr"
@@ -154,7 +153,7 @@ const GabaritChirurgical = () => {
                 />
               </div>
 
-              <div>
+              <div className='flex flex-col'>
                 <label className="block text-xl text-[#0b263d] font-medium mb-2">SpO2 (%)</label>
                 <input
                   type="number"
@@ -209,8 +208,8 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Soins post-opératoires */}
-          <div>
-            <label className="block text-xl text-[#0b263d] font-medium mb-2">Soins post-opératoires</label>
+          <div className='flex flex-col'>
+            <label className="text-xl text-[#0b263d] font-medium mb-2">Soins post-opératoires</label>
             <textarea
               name="soinsPostOp"
               value={formData.soinsPostOp}
@@ -222,8 +221,8 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Recommandations */}
-          <div>
-            <label className="block text-xl text-[#0b263d] font-medium mb-2">Recommandations</label>
+          <div className='flex flex-col'>
+            <label className="text-xl text-[#0b263d] font-medium mb-2">Recommandations</label>
             <textarea
               name="recommandations"
               value={formData.recommandations}
@@ -238,7 +237,7 @@ const GabaritChirurgical = () => {
           <div className="mt-8 text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+              className="px-6 py-3 bg-primary text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
             >
               Soumettre
             </button>
