@@ -1,5 +1,4 @@
-"use client"; // Utilisation de la fonctionnalité client-side de Next.js
-
+"use client"; 
 import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -47,14 +46,14 @@ const GabaritSoins = () => {
   };
 
   return (
-    <div className="bg-[#173A47] min-h-screen">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen text-[#1f2937]">
       {/* <Navbar /> */}
 
-      <div className="container bg-[#173A47] mx-auto px-6 py-12">
-        <h1 className="text-4xl font-semibold text-[#0b263d] text-center mb-6">Gabarit Soins Infirmiers</h1>
+      <div className="max-w-4xl mx-auto px-6 py-12">
+        <h1 className="text-5xl font-bold text-[#0b263d] text-center mb-12">Gabarit Soins Infirmiers</h1>
 
         {/* Formulaire interactif */}
-        <form onSubmit={handleSubmit} className="space-y-32 bg-[#46a2c3] p-6">
+        <form onSubmit={handleSubmit} className="bg-black shadow-2xl rounded-xl p-10 space-y-8">
           {/* Nom du patient */}
           <div className='bg-[#173A47] text-xl space-y-8' >
             <label className="block text-gray-700 text-xl">Nom du patient</label>
@@ -225,7 +224,7 @@ const GabaritSoins = () => {
           <div className="mt-28 text-center">
             <button
               type="submit"
-              className="px-12 py-6 bg-primary text-white font-semibold rounded-xl hover:bg-[#173A47] hover:text-lg transition-all duration-300 mx-auto"
+              className="bg-[#fae7c7] font-bold rounded-xl hover:bg-[#3f5fca] hover:text-lg transition-all duration-300 mx-auto"
             >
               Soumettre
             </button>

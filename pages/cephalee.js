@@ -26,6 +26,11 @@ const Cephalee = () => {
         ...formData,
         [name]: type === 'checkbox' ? checked : value,
       });
+    }else {
+      setFormData({
+        ...formData,
+        [name]: type === 'checkbox' ? checked : value,
+      });
     }
   };
 

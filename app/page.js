@@ -4,9 +4,6 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSyringe, faFileMedical, FaHospitalAlt, FaHeartbeat } from 'react-icons/fa';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 
 const Page = () => {
   const [hovered, setHovered] = useState(null);
@@ -29,9 +26,9 @@ const Page = () => {
       {/* Ajout du Navbar */}
       <Navbar />
       {/* Section d'introduction */}
-      <div className="text-center py-12 bg-[#38a3a5]">
-        <h1 className="text-4xl font-bold text-[#0b263d]">Gabarits cliniques adaptables</h1>
-        <p className="text-lg text-gray-700 mt-4">Votre application de prise de notes médicales, simple, ergonomique et personnalisable.</p>
+      <div className="text-center py-12 bg-[#108ebc]">
+        <h1 className="text-4xl font-bold text-[#fae7c7]">Gabarits cliniques adaptables</h1>
+        <p className="text-lg text-white mt-4">Votre application de prise de notes médicales, simple, ergonomique et personnalisable.</p>
       </div>
 
       {/* Section des gabarits */}
