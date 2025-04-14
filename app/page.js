@@ -4,21 +4,22 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
+import {useAuth } from "../context/AuthContext"
 
-const Page = () => {
+const Home = () => {
   const [hovered, setHovered] = useState(null);
-
+  const { user } = useAuth();
   // Liste des gabarits, incluant les nouveaux services spécifiques
   const templates = [
-    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', image: '/images/healthy.svg', link: '/soins' },
+    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', image: '/images/healthy.svg', link: '/historique' },
     { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', image: '/images/dossiermedic.svg', link: '/medical' },
-    { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/chirurgie.svg', link: '/chirurgical' },
-    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/urine.svg', link: '/infectionUrinaire' },
-    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/dizzy.svg', link: '/gabarit-cephalee' },
-    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/neurolog.svg', link: '/preventive' },
+    { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/chirurgie.svg', link: '/chirurgie' },
+    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/urine.svg', link: '/urologie' },
+    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/dizzy.svg', link: '/neurologie' },
+    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/neurolog.svg', link: '/preventif' },
     { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', image: '/images/diabet.svg', link: '/diabete' },
-    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/child.svg', link: '/pediatrique' },
-    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psycholog.svg', link: '/depression-anxiete' },
+    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/child.svg', link: '/pediatrie' },
+    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psycholog.svg', link: '/psychiatrie' },
   ];
 
   return (
@@ -27,8 +28,14 @@ const Page = () => {
       <Navbar />
       {/* Section d'introduction */}
       <div className="text-center py-12 bg-[#108ebc]">
-        <h1 className="text-4xl font-bold text-[#fae7c7]">Gabarits cliniques adaptables</h1>
-        <p className="text-lg text-white mt-4">Votre application de prise de notes médicales, simple, ergonomique et personnalisable.</p>
+        <h1 className="text-4xl font-bold text-[#fae7c7]">
+          {user ? `Bienvenue, ${user.displayName || user.email}` : "Gabarits cliniques adaptables"}
+        </h1>
+        <p className="text-lg text-white mt-4">
+          {user 
+            ? "Merci d`utiliser Notitia. Choisissez un gabarit."
+          : "Votre application de prise de notes médicales, simple, ergonomique et personnalisable."}
+           </p>
       </div>
 
       {/* Section des gabarits */}
@@ -70,4 +77,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Home;

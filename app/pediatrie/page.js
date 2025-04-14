@@ -1,20 +1,20 @@
-"use client";
+"use client"
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
-const Depression = () => {
+const SuiviPediatrique = () => {
   const [formData, setFormData] = useState({
     patientName: '',
-    symptoms: '',
-    depressionScale: '',
-    anxietyScale: '',
-    medication: '',
-    therapy: '',
-    familyHistory: '',
-    personalHistory: '',
-    clinicalImpression: '',
-    carePlan: ''
+    age: '',
+    poids: '',
+    taille: '',
+    vaccinations: '',
+    developpement: '',
+    symptomes: '',
+    etatGeneral: '',
+    impressions: '',
+    planSoins: ''
   });
 
   const handleChange = (e) => {
@@ -34,12 +34,13 @@ const Depression = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* <Navbar /> */}
+      <Navbar />
       <div className="text-center py-12 bg-blue-100">
-        <h1 className="text-4xl font-bold text-[#0b263d]">Suivi Psychologique - Dépression et Anxiété</h1>
-        <p className="text-lg text-gray-700 mt-4">Formulaire pour évaluer la dépression et l'anxiété du patient</p>
+        <h1 className="text-4xl font-bold text-[#0b263d]">Suivi Pédiatrique</h1>
+        <p className="text-lg text-gray-700 mt-4">Formulaire de suivi pour les enfants selon la tranche d'âge</p>
       </div>
 
-      {/* Formulaire de suivi dépression/anxiété */}
+      {/* Formulaire de suivi pédiatrique */}
       <form onSubmit={handleSubmit} className="space-y-6 bg-[#46a2c3] p-6 rounded-lg">
         {/* Nom du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
@@ -54,94 +55,94 @@ const Depression = () => {
           />
         </div>
 
+        {/* Âge du patient */}
+        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
+          <label className="block text-gray-700 text-xl">Âge du patient</label>
+          <input
+            type="number"
+            name="age"
+            value={formData.age}
+            onChange={handleChange}
+            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+            placeholder="Âge en années"
+          />
+        </div>
+
+        {/* Poids */}
+        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
+          <label className="block text-gray-700 text-xl">Poids (kg)</label>
+          <input
+            type="number"
+            name="poids"
+            value={formData.poids}
+            onChange={handleChange}
+            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+            placeholder="Poids du patient"
+          />
+        </div>
+
+        {/* Taille */}
+        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
+          <label className="block text-gray-700 text-xl">Taille (cm)</label>
+          <input
+            type="number"
+            name="taille"
+            value={formData.taille}
+            onChange={handleChange}
+            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+            placeholder="Taille du patient"
+          />
+        </div>
+
+        {/* Vaccinations */}
+        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
+          <label className="block text-gray-700 text-xl">Vaccinations effectuées</label>
+          <textarea
+            name="vaccinations"
+            value={formData.vaccinations}
+            onChange={handleChange}
+            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+            rows="3"
+            placeholder="Liste des vaccinations effectuées"
+          />
+        </div>
+
+        {/* Suivi du développement */}
+        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
+          <label className="block text-gray-700 text-xl">Suivi du développement</label>
+          <textarea
+            name="developpement"
+            value={formData.developpement}
+            onChange={handleChange}
+            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
+            rows="3"
+            placeholder="Observations sur le développement de l'enfant"
+          />
+        </div>
+
         {/* Symptômes observés */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
           <label className="block text-gray-700 text-xl">Symptômes observés</label>
           <textarea
-            name="symptoms"
-            value={formData.symptoms}
+            name="symptomes"
+            value={formData.symptomes}
             onChange={handleChange}
             className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             rows="3"
-            placeholder="Décrire les symptômes physiques et mentaux observés"
+            placeholder="Symptômes ou signes observés"
           />
         </div>
 
-        {/* Échelle de dépression */}
+        {/* État général */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Échelle de dépression (HAM-D)</label>
-          <input
-            type="number"
-            name="depressionScale"
-            value={formData.depressionScale}
-            onChange={handleChange}
-            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
-            placeholder="Score de l'échelle de dépression"
-          />
-        </div>
-
-        {/* Échelle d'anxiété */}
-        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Échelle d'anxiété (BAI)</label>
-          <input
-            type="number"
-            name="anxietyScale"
-            value={formData.anxietyScale}
-            onChange={handleChange}
-            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
-            placeholder="Score de l'échelle d'anxiété"
-          />
-        </div>
-
-        {/* Médicaments en cours */}
-        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Médicaments en cours</label>
+          <label className="block text-gray-700 text-xl">État général</label>
           <textarea
-            name="medication"
-            value={formData.medication}
+            name="etatGeneral"
+            value={formData.etatGeneral}
             onChange={handleChange}
             className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             rows="3"
-            placeholder="Médicaments que le patient prend actuellement"
-          />
-        </div>
-
-        {/* Thérapies en cours */}
-        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Thérapies en cours</label>
-          <textarea
-            name="therapy"
-            value={formData.therapy}
-            onChange={handleChange}
-            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
-            rows="3"
-            placeholder="Thérapies que le patient suit actuellement (par exemple, thérapie cognitivo-comportementale)"
-          />
-        </div>
-
-        {/* Antécédents familiaux */}
-        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Antécédents familiaux de troubles psychologiques</label>
-          <textarea
-            name="familyHistory"
-            value={formData.familyHistory}
-            onChange={handleChange}
-            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
-            rows="3"
-            placeholder="Antécédents familiaux de dépression, anxiété ou autres troubles psychiatriques"
-          />
-        </div>
-
-        {/* Antécédents personnels */}
-        <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Antécédents personnels</label>
-          <textarea
-            name="personalHistory"
-            value={formData.personalHistory}
-            onChange={handleChange}
-            className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
-            rows="3"
-            placeholder="Antécédents personnels de dépression, anxiété, ou autres troubles psychiatriques"
+            placeholder="État général de l'enfant"
           />
         </div>
 
@@ -149,12 +150,12 @@ const Depression = () => {
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
           <label className="block text-gray-700 text-xl">Impression clinique</label>
           <textarea
-            name="clinicalImpression"
-            value={formData.clinicalImpression}
+            name="impressions"
+            value={formData.impressions}
             onChange={handleChange}
             className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             rows="3"
-            placeholder="Impression clinique sur l'état mental du patient"
+            placeholder="Impression clinique générale"
           />
         </div>
 
@@ -162,12 +163,12 @@ const Depression = () => {
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
           <label className="block text-gray-700 text-xl">Plan de soins</label>
           <textarea
-            name="carePlan"
-            value={formData.carePlan}
+            name="planSoins"
+            value={formData.planSoins}
             onChange={handleChange}
             className="w-full p-4 mt-2 border border-gray-300 rounded-lg"
             rows="3"
-            placeholder="Plan de soins, suivi et traitement"
+            placeholder="Plan de soins à suivre"
           />
         </div>
 
@@ -183,8 +184,9 @@ const Depression = () => {
       </form>
 
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
 
-export default Depression;
+export default SuiviPediatrique;

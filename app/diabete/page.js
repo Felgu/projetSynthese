@@ -1,5 +1,7 @@
 "use client";
 import { useState } from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const Diabete = () => {
   const [formData, setFormData] = useState({
@@ -19,24 +21,27 @@ const Diabete = () => {
     });
   };
 
+  const [submitted, setSubmitted ] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log('Données soumises:', formData);
+    setSubmitted(true);
   };
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* <Navbar /> */}
+      <Navbar />
       <div className="text-center py-12 bg-blue-100">
         <h1 className="text-4xl font-bold text-[#0b263d]">Suivi du Diabète</h1>
         <p className="text-lg text-gray-700 mt-4">Formulaire de suivi pour le diabète du patient</p>
-      </div>
+      {/* </div> */}
 
       {/* Formulaire de gabarit diabète */}
       <form onSubmit={handleSubmit} className="space-y-6 bg-[#46a2c3] p-6 rounded-lg">
         {/* Nom du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Nom du patient</label>
+          <label className="block text-white text-xl">Nom du patient</label>
           <input
             type="text"
             name="patientName"
@@ -49,7 +54,7 @@ const Diabete = () => {
 
         {/* Glycémie */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Glycémie (mg/dL)</label>
+          <label className="block text-white text-xl">Glycémie (mg/dL)</label>
           <input
             type="number"
             name="glycemie"
@@ -62,7 +67,7 @@ const Diabete = () => {
 
         {/* Insuline administrée */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Insuline administrée (unités)</label>
+          <label className="block text-white text-xl">Insuline administrée (unités)</label>
           <input
             type="number"
             name="insuline"
@@ -75,7 +80,7 @@ const Diabete = () => {
 
         {/* Tension artérielle */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Tension Artérielle (TA)</label>
+          <label className="block text-white text-xl">Tension Artérielle (TA)</label>
           <input
             type="text"
             name="tension"
@@ -88,7 +93,7 @@ const Diabete = () => {
 
         {/* Complications */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Complications observées</label>
+          <label className="block text-white text-xl">Complications observées</label>
           <textarea
             name="complications"
             value={formData.complications}
@@ -101,7 +106,7 @@ const Diabete = () => {
 
         {/* Observations supplémentaires */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Observations supplémentaires</label>
+          <label className="block text-white text-xl">Observations supplémentaires</label>
           <textarea
             name="observations"
             value={formData.observations}
@@ -116,14 +121,15 @@ const Diabete = () => {
         <div className="mt-6">
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-[#38a3a5] transition-colors"
+            className="w-full py-3 bg-[#1b7e91] text-white font-semibold rounded-lg hover:bg-[#14697A] transition-colors"
           >
             Soumettre
           </button>
         </div>
       </form>
-
+      </div>
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

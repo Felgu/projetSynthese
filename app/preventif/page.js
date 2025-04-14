@@ -1,10 +1,10 @@
 "use client";  // Utilisation de la fonctionnalité client-side de Next.js
 
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
-const GabaritSantePreventive = () => {
+const SantePreventive = () => {
   // State pour tous les champs du formulaire
   const [formData, setFormData] = useState({
     poids: '',
@@ -41,9 +41,9 @@ const GabaritSantePreventive = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* <Navbar /> */}
-      
+      <Navbar />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit de Santé Préventive</h1>
+        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Santé Préventive</h1>
 
         {/* Formulaire interactif */}
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -222,8 +222,9 @@ const GabaritSantePreventive = () => {
       </div>
 
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
 
-export default GabaritSantePreventive;
+export default SantePreventive;

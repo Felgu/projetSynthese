@@ -1,5 +1,7 @@
 "use client";
 import { useState } from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const GabaritChirurgical = () => {
   const [formData, setFormData] = useState({
@@ -37,13 +39,16 @@ const GabaritChirurgical = () => {
     }
   };
 
+  const [submitted, setSubmitted ] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Données soumises:', formData);
+    setSubmitted(true);
   };
 
   return (
     <div className="bg-blue-50 min-h-screen font-sans p-4">
+      <Navbar />
       <div className="container mx-auto px-6 py-16 bg-red p-8 shadow-xl rounded-lg ml-[100px]">
         <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-18">Gabarit Chirurgical</h1>
 

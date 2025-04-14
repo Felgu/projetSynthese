@@ -1,8 +1,7 @@
-"use client"; // Utilisation de la fonctionnalité client-side de Next.js
-
+"use client";
 import { useState } from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const GabaritSoins = () => {
   // State pour les champs du formulaire
@@ -44,14 +43,18 @@ const GabaritSoins = () => {
   };
 
   // Fonction pour soumettre le formulaire
+  const [submitted, setSubmitted ] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Données soumises:', formData);
+    setSubmitted(true);
   };
 
+
   return (
-    <div className="bg-gray-200 min-h-screen font-sans">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen text-[#1f2937]">
       {/* <Navbar /> */}
+      <Navbar />
       <div className="container mx-auto px-6 py-16 shadow-xl rounded-lg ml-[500px]">
         <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Soins Infirmiers</h1>
 
@@ -237,6 +240,7 @@ const GabaritSoins = () => {
       </div>
 
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

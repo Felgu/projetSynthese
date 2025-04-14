@@ -1,5 +1,7 @@
 "use client"
 import { useState } from 'react';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
 
 const Cephalee = () => {
   // State pour les champs du formulaire
@@ -35,23 +37,26 @@ const Cephalee = () => {
   };
 
   // Fonction pour soumettre le formulaire
+  const [submitted, setSubmitted ] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Données soumises:', formData);
+    setSubmitted(true);
   };
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* <Navbar /> */}
+      <Navbar />
       <div className="container mx-auto px-4 py-12">
         <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Céphalée</h1>
-
         {/* Formulaire interactif */}
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           {/* Nom du patient */}
           <div>
-            <label className="block text-gray-700">Nom du patient</label>
+            <label htmlFor='patientName' className="block text-gray-700">Nom du patient</label>
             <input
+              id="patientName"
               type="text"
               name="patientName"
               value={formData.patientName}
@@ -127,7 +132,7 @@ const Cephalee = () => {
           </div>
 
           {/* Facteurs déclenchants */}
-          <div className="mt-6">
+          <div className="mt-6 text-black">
             <h2 className="text-xl font-semibold text-[#0b263d]">Facteurs déclenchants</h2>
             <div className="flex flex-wrap gap-4 mt-4">
               <div>
@@ -270,10 +275,10 @@ const Cephalee = () => {
           </div>
 
           {/* Bouton de soumission */}
-          <div className="mt-6">
+          <div className="mt-6 ">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
             >
               Soumettre
             </button>
@@ -282,6 +287,7 @@ const Cephalee = () => {
       </div>
 
       {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };
