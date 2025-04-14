@@ -64,18 +64,18 @@ const SantePreventive = () => {
           <h2 className="text-xl font-semibold text-[#0b263d] mt-6">Signes vitaux</h2>
           <div className="grid grid-cols-2 gap-7">
             <div>
-              <label className="block text-gray-700"> Tension artérielle (TA) </label>
+              <label className="block text-black"> Tension artérielle (TA) </label>
               <input
                 type="text"
                 name="ta"
                 value={formData.ta}
                 onChange={handleChange}
                 placeholder="Ex: 120/80"
-                className="w-full p-3 mt-20 border border-gray-300 rounded-lg"
+                className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
               />
             </div>
             <div>
-              <label className="block text-gray-700">Fréquence cardiaque (FC)</label>
+              <label className="block text-black">Fréquence cardiaque (FC)</label>
               <input
                 type="number"
                 name="fc"
@@ -181,7 +181,7 @@ const SantePreventive = () => {
 
           {/* Impression et tests */}
           <h2 className="text-xl font-semibold text-[#0b263d] mt-6">Impression et Plan</h2>
-          <div>
+          <div className='mt-4 text-gray-700'>
             <label className="block text-gray-700">Impression</label>
             <textarea
               name="impression"
@@ -193,7 +193,7 @@ const SantePreventive = () => {
           </div>
 
           {/* Tests recommandés */}
-          <div className="mt-4">
+          <div className="mt-4 text-gray-700">
             <label className="block text-gray-700">Tests recommandés</label>
             <select
               name="tests"
@@ -213,7 +213,7 @@ const SantePreventive = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-6 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
             >
               Soumettre
             </button>

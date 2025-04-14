@@ -44,7 +44,7 @@ const Depression = () => {
       <form onSubmit={handleSubmit} className="space-y-6 bg-[#46a2c3] p-6 rounded-lg">
         {/* Nom du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Nom du patient</label>
+          <label className="block text-white text-xl">Nom du patient</label>
           <input
             type="text"
             name="patientName"
@@ -57,7 +57,7 @@ const Depression = () => {
 
         {/* Symptômes observés */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Symptômes observés</label>
+          <label className="block text-white text-xl">Symptômes observés</label>
           <textarea
             name="symptoms"
             value={formData.symptoms}
@@ -70,7 +70,7 @@ const Depression = () => {
 
         {/* Échelle de dépression */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Échelle de dépression (HAM-D)</label>
+          <label className="block text-white text-xl">Échelle de dépression (HAM-D)</label>
           <input
             type="number"
             name="depressionScale"
@@ -83,7 +83,7 @@ const Depression = () => {
 
         {/* Échelle d'anxiété */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Échelle d'anxiété (BAI)</label>
+          <label className="block text-white text-xl">Échelle d`anxiété (BAI)</label>
           <input
             type="number"
             name="anxietyScale"
@@ -96,7 +96,7 @@ const Depression = () => {
 
         {/* Médicaments en cours */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Médicaments en cours</label>
+          <label className="block text-white text-xl">Médicaments en cours</label>
           <textarea
             name="medication"
             value={formData.medication}
@@ -109,7 +109,7 @@ const Depression = () => {
 
         {/* Thérapies en cours */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Thérapies en cours</label>
+          <label className="block text-white text-xl">Thérapies en cours</label>
           <textarea
             name="therapy"
             value={formData.therapy}
@@ -122,7 +122,7 @@ const Depression = () => {
 
         {/* Antécédents familiaux */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Antécédents familiaux de troubles psychologiques</label>
+          <label className="block text-white text-xl">Antécédents familiaux de troubles psychologiques</label>
           <textarea
             name="familyHistory"
             value={formData.familyHistory}
@@ -135,7 +135,7 @@ const Depression = () => {
 
         {/* Antécédents personnels */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Antécédents personnels</label>
+          <label className="block text-white text-xl">Antécédents personnels</label>
           <textarea
             name="personalHistory"
             value={formData.personalHistory}
@@ -148,7 +148,7 @@ const Depression = () => {
 
         {/* Impression clinique */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Impression clinique</label>
+          <label className="block text-white text-xl">Impression clinique</label>
           <textarea
             name="clinicalImpression"
             value={formData.clinicalImpression}
@@ -161,7 +161,7 @@ const Depression = () => {
 
         {/* Plan de soins */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Plan de soins</label>
+          <label className="block text-white text-xl">Plan de soins</label>
           <textarea
             name="carePlan"
             value={formData.carePlan}
@@ -176,7 +176,7 @@ const Depression = () => {
         <div className="mt-6">
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-12 py-3 bg-[#ff8811] text-white font-semibold rounded-lg hover:bg-blue-700 hover:text-black transition-colors"
           >
             Soumettre
           </button>

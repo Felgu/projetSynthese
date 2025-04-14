@@ -61,7 +61,7 @@ const GabaritChirurgical = () => {
               name="typeChirurgie"
               value={formData.typeChirurgie}
               onChange={handleChange}
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg ext-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Ex: Chirurgie abdominale"
             />
           </div>
@@ -173,7 +173,7 @@ const GabaritChirurgical = () => {
           </div>
 
           {/* Complications */}
-          <div className="mt-8">
+          <div className="mt-8 text-black">
             <h2 className="text-2xl font-semibold text-[#0b263d] mb-4">Complications</h2>
             <div className="flex flex-wrap gap-6">
               <div className="flex items-center">
@@ -242,7 +242,7 @@ const GabaritChirurgical = () => {
           <div className="mt-8 text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white text-lg font-semibold rounded-lg hover:bg-blue-700 transition duration-300"
+              className="px-6 py-3 bg-[#ff8811] text-black text-lg font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition duration-300"
             >
               Soumettre
             </button>

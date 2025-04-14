@@ -228,10 +228,10 @@ const GabaritSoins = () => {
           </div>
 
           {/* Bouton de soumission */}
-          <div className="mt-6">
+          <div className="mt-6 ">
             <button
               type="submit"
-              className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+              className="px-9 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
             >
               Soumettre
             </button>

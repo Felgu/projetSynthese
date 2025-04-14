@@ -44,7 +44,7 @@ const SuiviPediatrique = () => {
       <form onSubmit={handleSubmit} className="space-y-6 bg-[#46a2c3] p-6 rounded-lg">
         {/* Nom du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Nom du patient</label>
+          <label className="block text-white text-xl">Nom du patient</label>
           <input
             type="text"
             name="patientName"
@@ -57,7 +57,7 @@ const SuiviPediatrique = () => {
 
         {/* Âge du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Âge du patient</label>
+          <label className="block text-white text-xl">Âge du patient</label>
           <input
             type="number"
             name="age"
@@ -70,7 +70,7 @@ const SuiviPediatrique = () => {
 
         {/* Poids */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Poids (kg)</label>
+          <label className="block text-white text-xl">Poids (kg)</label>
           <input
             type="number"
             name="poids"
@@ -83,7 +83,7 @@ const SuiviPediatrique = () => {
 
         {/* Taille */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Taille (cm)</label>
+          <label className="block text-white text-xl">Taille (cm)</label>
           <input
             type="number"
             name="taille"
@@ -96,7 +96,7 @@ const SuiviPediatrique = () => {
 
         {/* Vaccinations */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Vaccinations effectuées</label>
+          <label className="block text-white text-xl">Vaccinations effectuées</label>
           <textarea
             name="vaccinations"
             value={formData.vaccinations}
@@ -109,7 +109,7 @@ const SuiviPediatrique = () => {
 
         {/* Suivi du développement */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Suivi du développement</label>
+          <label className="block text-white text-xl">Suivi du développement</label>
           <textarea
             name="developpement"
             value={formData.developpement}
@@ -122,7 +122,7 @@ const SuiviPediatrique = () => {
 
         {/* Symptômes observés */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Symptômes observés</label>
+          <label className="block text-white text-xl">Symptômes observés</label>
           <textarea
             name="symptomes"
             value={formData.symptomes}
@@ -135,7 +135,7 @@ const SuiviPediatrique = () => {
 
         {/* État général */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">État général</label>
+          <label className="block text-white text-xl">État général</label>
           <textarea
             name="etatGeneral"
             value={formData.etatGeneral}
@@ -148,7 +148,7 @@ const SuiviPediatrique = () => {
 
         {/* Impression clinique */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Impression clinique</label>
+          <label className="block text-white text-xl">Impression clinique</label>
           <textarea
             name="impressions"
             value={formData.impressions}
@@ -161,7 +161,7 @@ const SuiviPediatrique = () => {
 
         {/* Plan de soins */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-gray-700 text-xl">Plan de soins</label>
+          <label className="block text-white text-xl">Plan de soins</label>
           <textarea
             name="planSoins"
             value={formData.planSoins}
@@ -176,7 +176,7 @@ const SuiviPediatrique = () => {
         <div className="mt-6">
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+            className="px-9 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
           >
             Soumettre
           </button>
