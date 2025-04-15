@@ -37,7 +37,7 @@ const SuiviPediatrique = () => {
       <Navbar />
       <div className="text-center py-12 bg-blue-100">
         <h1 className="text-4xl font-bold text-[#0b263d]">Suivi Pédiatrique</h1>
-        <p className="text-lg text-gray-700 mt-4">Formulaire de suivi pour les enfants selon la tranche d'âge</p>
+        <p className="text-lg text-gray-700 mt-4">Formulaire de suivi pour les enfants selon la tranche d`âge</p>
       </div>
 
       {/* Formulaire de suivi pédiatrique */}
