@@ -249,6 +249,7 @@ const GabaritChirurgical = () => {
           </div>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };

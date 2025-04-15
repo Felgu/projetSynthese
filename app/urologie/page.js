@@ -121,14 +121,14 @@ const InfectionUrinaire = () => {
           </div>
 
           {/* Brûlure urinaire */}
-          <div>
+          <div className='text-black'>
             <label className="block text-gray-700">Brûlure urinaire</label>
             <input
               type="checkbox"
               name="brulureUrinaire"
               checked={formData.brulureUrinaire}
               onChange={handleChange}
-              className="mr-2"
+              className="mr-3"
             />
             <span>Présente</span>
           </div>
@@ -153,7 +153,7 @@ const InfectionUrinaire = () => {
               name="analyseUrine"
               value={formData.analyseUrine}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full text-black p-3 mt-2 border border-gray-300 rounded-lg"
               rows="3"
               placeholder="Détails sur l'analyse d'urine"
             />
@@ -166,7 +166,7 @@ const InfectionUrinaire = () => {
               name="examenPhysique"
               value={formData.examenPhysique}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full text-black p-3 mt-2 border border-gray-300 rounded-lg"
               rows="3"
               placeholder="Détails de l'examen physique"
             />
@@ -179,7 +179,7 @@ const InfectionUrinaire = () => {
               name="impression"
               value={formData.impression}
               onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
+              className="w-full text-gray-500 p-3 mt-2 border border-gray-300 rounded-lg"
               rows="3"
               placeholder="Ex: Infection urinaire probable"
             />
