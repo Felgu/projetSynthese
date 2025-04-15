@@ -44,7 +44,7 @@ const SuiviPediatrique = () => {
       <form onSubmit={handleSubmit} className="space-y-6 bg-[#46a2c3] p-6 rounded-lg">
         {/* Nom du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-white text-xl">Nom du patient</label>
+          <label className="block text-white text-xl">Nom de l`enfant</label>
           <input
             type="text"
             name="patientName"
@@ -57,7 +57,7 @@ const SuiviPediatrique = () => {
 
         {/* Âge du patient */}
         <div className="bg-[#173A47] p-4 rounded-lg text-xl">
-          <label className="block text-white text-xl">Âge du patient</label>
+          <label className="block text-white text-xl">Âge de l`enfant</label>
           <input
             type="number"
             name="age"

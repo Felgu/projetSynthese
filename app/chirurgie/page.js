@@ -47,7 +47,7 @@ const GabaritChirurgical = () => {
   };
 
   return (
-    <div className="bg-blue-50 min-h-screen font-sans p-4">
+    <div className="bg-gray-400 min-h-screen font-sans p-4">
       <Navbar />
       <div className="container mx-auto px-6 py-16 bg-red p-8 shadow-xl rounded-lg ml-[100px]">
         <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-18">Gabarit Chirurgical</h1>

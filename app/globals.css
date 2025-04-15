@@ -27,3 +27,9 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.input {
+  @apply px-3 py-2 border border-gray-300 rounded;
+}
+.input {
+  @apply border border-gray-300 rounded px-3 py-2 w-full;
+}
