@@ -2,62 +2,80 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { HiOutlineMenu, Hix } from "react-icons/hi";
+import { HiOutlineMenu, HiX } from "react-icons/hi";
 import { useAuth } from '../context/AuthContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
 
+  const navLinks = [
+    { href: "/", label: "Accueil" },
+    { href: "/about", label: "À propos" },
+    { href: "/contact", label: "Contact" }
+  ];
+
   return (
-    <nav className="bg-[#0f81ab] p-4 shadow-md">
+    <nav className="bg-[#0f81ab] p-4 shadow-md sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo avec un lien */}
-        <Link href="/" className="flex items-center space-x-4">
+        {/* Logo + nom */}
+        <Link href="/" className="flex items-center space-x-4" aria-label="Accueil Notitia">
           <Image
-            src="/assets/notitia.png" 
-            alt="Logo"
+            src="/assets/notitia.png"
+            alt="Logo Notitia"
             width={80}
             height={80}
             className="rounded-lg"
           />
-          <span className="text-white text-4xl font-semibold hover:text-yellow-400">Notitia</span>
+          <span className="text-white text-4xl font-semibold hover:text-yellow-400 transition-colors">Notitia</span>
         </Link>
-        {/* navigation mobile */}
-        <div className='md:hidden'>
+
+        {/* Bouton menu mobile */}
+        <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className='text-white focus:outline-none'
+            className="text-white focus:outline-none"
+            aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           >
-            {isOpen ? <Hix size={30} /> : <HiOutlineMenu size={30} />}
+            {isOpen ? <HiX size={30} /> : <HiOutlineMenu size={30} />}
           </button>
         </div>
 
         {/* Liens de navigation */}
-        <div className={`w-full md:flex md:items-center md:w-auto ${isOpen ? 'block' : 'hidden'}`}>
+        <div className={`w-full md:flex md:items-center md:w-auto transition-all duration-300 ease-in-out ${isOpen ? 'block' : 'hidden'}`}>
           <div className="flex flex-col md:flex-row md:space-x-6 mt-4 md:mt-0 text-center">
-            <Link href="/" className="text-white text-xl transform hover:scale-125 hover:text-yellow-400 ">Accueil</Link>
-            <Link href="/about" className="text-white text-xl transform hover:scale-125 hover:text-yellow-400 ">À propos</Link>
-            <Link href="/contact" className="text-white text-xl transform hover:scale-125 hover:text-yellow-400 ">Contact</Link>
+            {navLinks.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                className="text-white text-xl px-4 py-2 rounded-md hover:scale-125 hover:text-yellow-400 transition-all"
+              >
+                {label}
+              </Link>
+            ))}
+
             {!user ? (
               <>
-                <Link href="/login" className="text-white text-lg bg-[#79154c] p-4 rounded-lg hover:text-[#22577a] hover:bg-[#e28743]">
+                <Link
+                  href="/login"
+                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:text-[#CC2121] hover:bg-[#639a88] transition"
+                >
                   Se connecter
                 </Link>
-                <Link href="/signup" className="text-white text-lg bg-[#747915] p-4 rounded-lg hover:text-[#22577a] hover:bg-[#e28743]">
+                <Link
+                  href="/signup"
+                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:bg-[#e28743] hover:text-[#22577a] transition"
+                >
                   Créer un compte
                 </Link>
               </>
             ) : (
-              <>
-                {/* <span className='text-white font-semibold'>{user.displayName || user.email}</span> */}
-                <button 
-                  onClick={logout}
-                  className='text-white bg-red-600 p-2 rounded-lg hover:bg-red-800'
-                >
-                  Se deconnecter
-                </button>
-              </>
+              <button
+                onClick={logout}
+                className="text-white bg-red-600 p-3 rounded-lg hover:bg-red-800 transition"
+              >
+                Se déconnecter
+              </button>
             )}
           </div>
         </div>
