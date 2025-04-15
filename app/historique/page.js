@@ -1,248 +1,193 @@
-"use client";
-import { useState } from 'react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
+'use client';
 
-const GabaritSoins = () => {
-  // State pour les champs du formulaire
+import { useState } from 'react';
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import { db } from '@/lib/firebase';
+import { collection, addDoc } from 'firebase/firestore';
+
+const NouveauPatientForm = () => {
   const [formData, setFormData] = useState({
-    patientName: '',
-    dateOfBirth: '',
-    dateSoins: '',
-    soinsEffectues: '',
-    observations: '',
-    traitementsAdministres: '',
-    signesVitaux: {
-      temperature: '',
-      pa: '',
-      fc: '',
-      fr: '',
-      spo2: '',
+    nom: '',
+    prenom: '',
+    dateNaissance: '',
+    telephone: '',
+    adresse: '',
+    pharmacie: '',
+    medecinPrecedent: '',
+    dernierRdv: '',
+    etatCivil: '',
+    emploi: '',
+    tabac: '',
+    alcool: '',
+    alcoolQuantite: '',
+    drogue: '',
+    allergies: {
+      medicaments: '',
+      alimentaires: '',
+      saisonnieres: '',
     },
-    actionInfirmiere: '',
-    prochaineEvaluation: '',
+    vaccination: {
+      tetanos: '',
+      pneumovax: false,
+    },
+    chirurgies: '',
+    antecedentsFamiliaux: {
+      pere: { vivant: true, age: '', details: '' },
+      mere: { vivante: true, age: '', details: '' },
+      fratrie: [],
+      enfants: [],
+    },
+    problemesSante: {
+      mental: [],
+      pulmonaire: [],
+      cardiaque: [],
+      neurologique: [],
+      endocrinien: [],
+      digestif: [],
+      divers: [],
+      autres: '',
+    },
+    examens: {
+      pap: '',
+      prostate: '',
+      gastro: '',
+      colo: '',
+      polype: '',
+      itss: '',
+    },
   });
 
-  // Fonction pour mettre à jour les champs du formulaire
-  const handleChange = (e) => {
+  const handleChange = (e, section = null, subSection = null) => {
     const { name, value, type, checked } = e.target;
-    if (name in formData.signesVitaux) {
-      setFormData({
-        ...formData,
-        signesVitaux: {
-          ...formData.signesVitaux,
-          [name]: type === 'checkbox' ? checked : value,
-        },
-      });
+
+    if (section) {
+      if (subSection) {
+        setFormData((prev) => ({
+          ...prev,
+          [section]: {
+            ...prev[section],
+            [subSection]: {
+              ...prev[section][subSection],
+              [name]: type === 'checkbox' ? checked : value,
+            },
+          },
+        }));
+      } else {
+        setFormData((prev) => ({
+          ...prev,
+          [section]: {
+            ...prev[section],
+            [name]: type === 'checkbox' ? checked : value,
+          },
+        }));
+      }
     } else {
-      setFormData({
-        ...formData,
-        [name]: type === 'checkbox' ? checked : value,
-      });
+      setFormData((prev) => ({
+        ...prev,
+        [name]: value,
+      }));
     }
   };
 
-  // Fonction pour soumettre le formulaire
-  const [submitted, setSubmitted ] = useState(false);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Données soumises:', formData);
-    setSubmitted(true);
-  };
 
+    try {
+      await addDoc(collection(db, 'patients'), formData);
+      alert('Formulaire soumis avec succès');
+    } catch (error) {
+      console.error('Erreur lors de la soumission :', error);
+      alert('Une erreur est survenue.');
+    }
+  };
 
   return (
     <div className="bg-gradient-to-br from-blue-50 to-blue-100 min-h-screen text-[#1f2937]">
-      {/* <Navbar /> */}
       <Navbar />
-      <div className="container mx-auto px-6 py-16 shadow-xl rounded-lg ml-[500px]">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Soins Infirmiers</h1>
+      <div className="max-w-4xl mx-auto px-6 py-12">
+      <h1 className="text-2xl font-bold mb-6">Formulaire - Nouveau patient</h1>
 
-        {/* Formulaire interactif */}
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          {/* Nom du patient */}
-          <div>
-            <label className="block text-gray-700">Nom du patient</label>
-            <input
-              type="text"
-              name="patientName"
-              value={formData.patientName}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              placeholder="Nom du patient"
-            />
-          </div>
+      <form onSubmit={handleSubmit} className="space-y-4">
 
-          {/* Date de naissance */}
-          <div>
-            <label className="block text-gray-700">Date de naissance</label>
-            <input
-              type="date"
-              name="dateOfBirth"
-              value={formData.dateOfBirth}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-            />
-          </div>
+        {/* Nom / Prénom */}
+        <div className="grid grid-cols-2 gap-4">
+          <input type="text" name="nom" placeholder="Nom" value={formData.nom} onChange={handleChange} className="input" />
+          <input type="text" name="prenom" placeholder="Prénom" value={formData.prenom} onChange={handleChange} className="input" />
+        </div>
 
-          {/* Date des soins */}
-          <div>
-            <label className="block text-gray-700">Date des soins</label>
-            <input
-              type="date"
-              name="dateSoins"
-              value={formData.dateSoins}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-            />
-          </div>
+        {/* Date de naissance, téléphone */}
+        <div className="grid grid-cols-2 gap-4">
+          <input type="date" name="dateNaissance" value={formData.dateNaissance} onChange={handleChange} className="input" />
+          <input type="text" name="telephone" placeholder="Téléphone" value={formData.telephone} onChange={handleChange} className="input" />
+        </div>
 
-          {/* Soins effectués */}
-          <div>
-            <label className="block text-gray-700">Soins effectués</label>
-            <textarea
-              name="soinsEffectues"
-              value={formData.soinsEffectues}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Détaillez les soins effectués (pansement, injection, etc.)"
-            />
-          </div>
+        {/* Adresse, Pharmacie */}
+        <input type="text" name="adresse" placeholder="Adresse" value={formData.adresse} onChange={handleChange} className="input w-full" />
+        <input type="text" name="pharmacie" placeholder="Pharmacie" value={formData.pharmacie} onChange={handleChange} className="input w-full" />
 
-          {/* Observations */}
-          <div>
-            <label className="block text-gray-700">Observations</label>
-            <textarea
-              name="observations"
-              value={formData.observations}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Observations spécifiques concernant l'état du patient"
-            />
-          </div>
+        {/* Statut social */}
+        <select name="etatCivil" value={formData.etatCivil} onChange={handleChange} className="input w-full text-black">
+          <option value="">État civil</option>
+          <option value="célibataire">Célibataire</option>
+          <option value="marié">Marié(e)</option>
+          <option value="divorcé">Divorcé(e)</option>
+          <option value="conjoint">Conjoint de fait</option>
+          <option value="veuf">Veuf/veuve</option>
+        </select>
 
-          {/* Traitements administrés */}
-          <div>
-            <label className="block text-gray-700">Traitements administrés</label>
-            <textarea
-              name="traitementsAdministres"
-              value={formData.traitementsAdministres}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Détails des traitements administrés au patient (médicaments, doses, fréquence)"
-            />
-          </div>
+        {/* Emploi */}
+        <input type="text" name="emploi" placeholder="Emploi actuel" value={formData.emploi} onChange={handleChange} className="input w-full" />
 
-          {/* Signes vitaux */}
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold text-[#0b263d]">Signes vitaux</h2>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <div>
-                <label className="block text-gray-700">Température (°C)</label>
-                <input
-                  type="number"
-                  name="temperature"
-                  value={formData.signesVitaux.temperature}
-                  onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-                  placeholder="Ex: 37.5"
-                />
-              </div>
+        {/* Tabac, alcool, drogue */}
+        <div className="grid grid-cols-3 gap-4">
+          <select name="tabac" value={formData.tabac} onChange={handleChange} className="input">
+            <option value="">Tabac</option>
+            <option value="jamais">Jamais</option>
+            <option value="fumeur">Fumeur</option>
+            <option value="ex-fumeur">Ex-fumeur</option>
+          </select>
 
-              <div>
-                <label className="block text-gray-700">Pression artérielle</label>
-                <input
-                  type="text"
-                  name="pa"
-                  value={formData.signesVitaux.pa}
-                  onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-                  placeholder="Ex: 120/80"
-                />
-              </div>
+          <select name="alcool" value={formData.alcool} onChange={handleChange} className="input">
+            <option value="">Alcool</option>
+            <option value="jamais">Jamais</option>
+            <option value="occasionnel">Occasionnel</option>
+            <option value="quotidien">Quotidien</option>
+          </select>
 
-              <div>
-                <label className="block text-gray-700">Fréquence cardiaque</label>
-                <input
-                  type="number"
-                  name="fc"
-                  value={formData.signesVitaux.fc}
-                  onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-                  placeholder="Ex: 80 bpm"
-                />
-              </div>
+          <input type="text" name="alcoolQuantite" placeholder="Alcool: nb/jour" value={formData.alcoolQuantite} onChange={handleChange} className="input" />
+        </div>
 
-              <div>
-                <label className="block text-gray-700">Fréquence respiratoire</label>
-                <input
-                  type="number"
-                  name="fr"
-                  value={formData.signesVitaux.fr}
-                  onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-                  placeholder="Ex: 18/min"
-                />
-              </div>
+        {/* Drogue */}
+        <select name="drogue" value={formData.drogue} onChange={handleChange} className="input w-full">
+          <option value="">Drogue</option>
+          <option value="jamais">Jamais</option>
+          <option value="occasionnel">Occasionnel</option>
+          <option value="regulier">Régulièrement</option>
+        </select>
 
-              <div>
-                <label className="block text-gray-700">SpO2 (%)</label>
-                <input
-                  type="number"
-                  name="spo2"
-                  value={formData.signesVitaux.spo2}
-                  onChange={handleChange}
-                  className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-                  placeholder="Ex: 98%"
-                />
-              </div>
-            </div>
-          </div>
+        {/* Allergies */}
+        <input type="text" name="medicaments" placeholder="Allergies médicamenteuses" value={formData.allergies.medicaments} onChange={(e) => handleChange(e, 'allergies')} className="input w-full" />
+        <input type="text" name="alimentaires" placeholder="Allergies alimentaires" value={formData.allergies.alimentaires} onChange={(e) => handleChange(e, 'allergies')} className="input w-full" />
+        <input type="text" name="saisonnieres" placeholder="Allergies saisonnières" value={formData.allergies.saisonnieres} onChange={(e) => handleChange(e, 'allergies')} className="input w-full" />
 
-          {/* Action infirmière */}
-          <div>
-            <label className="block text-gray-700">Action infirmière</label>
-            <textarea
-              name="actionInfirmiere"
-              value={formData.actionInfirmiere}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-              rows="4"
-              placeholder="Actions spécifiques réalisées par l'infirmier (éducation, conseils, suivi)"
-            />
-          </div>
+        {/* Tétanos */}
+        <input type="date" name="tetanos" value={formData.vaccination.tetanos} onChange={(e) => handleChange(e, 'vaccination')} className="input w-full" />
 
-          {/* Prochaine évaluation */}
-          <div>
-            <label className="block text-gray-700">Prochaine évaluation</label>
-            <input
-              type="date"
-              name="prochaineEvaluation"
-              value={formData.prochaineEvaluation}
-              onChange={handleChange}
-              className="w-full p-3 mt-2 border border-gray-300 rounded-lg"
-            />
-          </div>
+        {/* Pneumovax */}
+        <label className="flex items-center">
+          <input type="checkbox" name="pneumovax" checked={formData.vaccination.pneumovax} onChange={(e) => handleChange(e, 'vaccination')} className="mr-2" />
+          Déjà reçu Pneumovax ?
+        </label>
 
-          {/* Bouton de soumission */}
-          <div className="mt-6 ">
-            <button
-              type="submit"
-              className="px-9 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
-            >
-              Soumettre
-            </button>
-          </div>
-        </form>
-      </div>
-
-      {/* <Footer /> */}
+        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-md">
+          Soumettre
+        </button>
+      </form>
+    </div>
       <Footer />
     </div>
   );
 };
 
-export default GabaritSoins;
+export default NouveauPatientForm;

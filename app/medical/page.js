@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 
-const SoinsGeneral = () => {
+const SoinGeneral = () => {
   const [formData, setFormData] = useState({
     patientName: '',
     dateOfBirth: '',
@@ -246,4 +246,4 @@ const SoinsGeneral = () => {
   );
 };
 
-export default SoinsGeneral;
+export default SoinGeneral;

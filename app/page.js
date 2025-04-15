@@ -11,15 +11,16 @@ const Home = () => {
   const { user } = useAuth();
   // Liste des gabarits, incluant les nouveaux services spécifiques
   const templates = [
-    { id: 1, name: 'Gabarit de Soins', description: 'Suivi des soins quotidiens', image: '/images/healthy.svg', link: '/historique' },
-    { id: 2, name: 'Gabarit Médical', description: 'Historique médical du patient', image: '/images/dossiermedic.svg', link: '/medical' },
-    { id: 3, name: 'Gabarit Chirurgical', description: 'Suivi des interventions chirurgicales', image: '/images/chirurgie.svg', link: '/chirurgie' },
-    { id: 4, name: 'Infection Urinaire', description: 'Suivi des infections urinaires', image: '/images/urine.svg', link: '/urologie' },
-    { id: 5, name: 'Céphalée', description: 'Suivi des céphalées', image: '/images/dizzy.svg', link: '/neurologie' },
-    { id: 6, name: 'Santé Préventive', description: 'Suivi de la santé préventive', image: '/images/neurolog.svg', link: '/preventif' },
-    { id: 7, name: 'Suivi Diabétique', description: 'Suivi des patients diabétiques', image: '/images/diabet.svg', link: '/diabete' },
-    { id: 8, name: 'Suivi Pédiatrique', description: 'Suivi médical des enfants', image: '/images/child.svg', link: '/pediatrie' },
-    { id: 9, name: 'Suivi Psychologique', description: 'Suivi pour troubles psychiatriques', image: '/images/psycholog.svg', link: '/psychiatrie' },
+    { id: 1, name: 'Premiere Consultation', description: 'Premiere prise de donnees', image: '/images/healthy.svg', link: '/historique' },
+    { id: 2, name: 'Soins Generaux', description: 'Suivi des soins quotidiens', image: '/images/dossiermedic.svg', link: '/medical' },
+    { id: 3, name: 'Chirurgie', description: 'Suivi des interventions chirurgicales', image: '/images/chirurgie.svg', link: '/chirurgie' },
+    { id: 4, name: 'Urologie', description: 'Suivi des infections urinaires', image: '/images/urine.svg', link: '/urologie' },
+    { id: 5, name: 'Neurologie', description: 'Suivi des céphalées', image: '/images/dizzy.svg', link: '/neurologie' },
+    { id: 6, name: 'Psychologie', description: 'Suivi de la santé préventive', image: '/images/neurolog.svg', link: '/preventif' },
+    { id: 7, name: 'Diabéte', description: 'Suivi des patients diabétiques', image: '/images/diabet.svg', link: '/diabete' },
+    { id: 8, name: 'Pédiatrie', description: 'Suivi médical des enfants', image: '/images/child.svg', link: '/pediatrie' },
+    { id: 9, name: 'Psychatrie', description: 'Suivi pour troubles psychiatriques', image: '/images/psycholog.svg', link: '/psychiatrie' },
+    { id: 10, name: 'Gynecology', description: 'Suivi de grossesses', image: '/images/gynecologist.svg', link: '/gynecology' },
   ];
 
   return (
@@ -41,7 +42,7 @@ const Home = () => {
       {/* Section des gabarits */}
       <div className="container mx-auto px-4 bg-red-100">
         <h2 className="text-2xl font-semibold text-[#0b263d] text-center">
-          Gabarits disponibles
+          Vos gabarits exploitables
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
           {templates.map((template) => (
