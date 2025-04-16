@@ -47,8 +47,9 @@ const Home = () => {
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 text-black">
           {templates.map((template) => (
-            <Link key={template.id} href={template.link}>
+            // <Link key={template.id} href={template.link}>
               <div
+                key={template.id}
                 className="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-transform duration-300 hover:bg-yellow-100"
                 onMouseEnter={() => setHovered(template.id)}
                 onMouseLeave={() => setHovered(null)}
@@ -62,8 +63,15 @@ const Home = () => {
                 />
                 <h3 className="text-xl font-bold text-center">{template.name}</h3>
                 <p className="text-gray-600 text-center mt-2">{template.description}</p>
+                {user ? (
+                   <Link href={template.link}>
+                   <p className="text-blue-600 text-center mt-4 hover:underline">Utiliser ce gabarit</p>
+                 </Link>
+               ) : (
+                 <p className="text-center text-sm text-red-500 mt-4">Connectez-vous pour utiliser ce gabarit</p>
+               )}
               </div>
-            </Link>
+            // </Link>
           ))}
         </div>
       </div>
