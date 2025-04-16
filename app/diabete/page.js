@@ -121,7 +121,7 @@ const Diabete = () => {
         <div className="mt-6">
           <button
             type="submit"
-            className="w-full py-3 bg-[#1b7e91] text-white font-semibold rounded-lg hover:bg-[#14697A] transition-colors"
+            className="w-full py-3 bg-[#157291] text-white text-xl font-semibold rounded-lg hover:bg-[#14697A] hover:text-black transition-colors"
           >
             Soumettre
           </button>

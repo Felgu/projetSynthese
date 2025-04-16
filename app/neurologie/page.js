@@ -49,7 +49,7 @@ const Cephalee = () => {
       {/* <Navbar /> */}
       <Navbar />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit Céphalée</h1>
+        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Formulaire Céphalée</h1>
         {/* Formulaire interactif */}
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
           {/* Nom du patient */}
@@ -278,7 +278,7 @@ const Cephalee = () => {
           <div className="mt-6 ">
             <button
               type="submit"
-              className="px-9 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
+              className="px-9 py-3 bg-[#157291] text-white font-semibold rounded-lg hover:bg-[#7fc6a4] hover:text-black transition-colors"
             >
               Soumettre
             </button>

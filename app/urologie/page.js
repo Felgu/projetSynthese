@@ -37,7 +37,7 @@ const InfectionUrinaire = () => {
       {/* <Navbar />0 */}
       <Navbar />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Gabarit - Infection Urinaire</h1>
+        <h1 className="text-3xl font-bold text-[#0b263d] text-center">Formulaire Infection Urinaire</h1>
 
         {/* Formulaire interactif */}
         <form onSubmit={handleSubmit} className="mt-8 space-y-6">
@@ -229,7 +229,7 @@ const InfectionUrinaire = () => {
           <div className="mt-6">
             <button
               type="submit"
-              className="px-6 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
+              className="px-6 py-3 bg-[#157291] text-white font-semibold rounded-lg hover:bg-[#7fc6a4] hover:text-black transition-colors"
             >
               Soumettre
             </button>

@@ -21,7 +21,7 @@ const Navbar = () => {
         {/* Logo + nom */}
         <Link href="/" className="flex items-center space-x-4" aria-label="Accueil Notitia">
           <Image
-            src="/assets/notitia.png"
+            src="/images/puce.jpg"
             alt="Logo Notitia"
             width={80}
             height={80}
@@ -58,13 +58,13 @@ const Navbar = () => {
               <>
                 <Link
                   href="/login"
-                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:text-[#CC2121] hover:bg-[#639a88] transition"
+                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:text-black hover:bg-[#639a88] transition"
                 >
                   Se connecter
                 </Link>
                 <Link
                   href="/signup"
-                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:bg-[#e28743] hover:text-[#22577a] transition"
+                  className="text-white text-lg px-4 py-2 border border-white p-3 rounded-lg hover:bg-[#e28743] hover:text-black transition"
                 >
                   Créer un compte
                 </Link>

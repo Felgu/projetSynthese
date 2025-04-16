@@ -47,10 +47,10 @@ const GabaritChirurgical = () => {
   };
 
   return (
-    <div className="bg-gray-400 min-h-screen font-sans p-4">
+    <div className="bg-[#D6DDD6] min-h-screen font-sans p-4">
       <Navbar />
       <div className="container mx-auto px-6 py-16 bg-red p-8 shadow-xl rounded-lg ml-[100px]">
-        <h1 className="text-4xl font-bold text-[#0b263d] text-center mb-18">Gabarit Chirurgical</h1>
+        <h1 className="text-4xl font-bold text-gray-700 text-center mb-18">Formulaire Chirurgical</h1>
 
         <form onSubmit={handleSubmit} className="space-y-8 mx-auto max-w-4xl">
           {/* Type de chirurgie */}
@@ -61,7 +61,7 @@ const GabaritChirurgical = () => {
               name="typeChirurgie"
               value={formData.typeChirurgie}
               onChange={handleChange}
-              className="w-full p-4 text-lg ext-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Ex: Chirurgie abdominale"
             />
           </div>
@@ -74,7 +74,7 @@ const GabaritChirurgical = () => {
               name="dateChirurgie"
               value={formData.dateChirurgie}
               onChange={handleChange}
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
             />
           </div>
 
@@ -86,7 +86,7 @@ const GabaritChirurgical = () => {
               name="anesthesie"
               value={formData.anesthesie}
               onChange={handleChange}
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Ex: Anesthésie générale"
             />
           </div>
@@ -101,7 +101,7 @@ const GabaritChirurgical = () => {
               onChange={handleChange}
               min="0"
               max="10"
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               placeholder="Notez la douleur de 0 à 10"
             />
           </div>
@@ -117,7 +117,7 @@ const GabaritChirurgical = () => {
                   name="temperature"
                   value={formData.signesVitaux.temperature}
                   onChange={handleChange}
-                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 37.5"
                 />
               </div>
@@ -129,7 +129,7 @@ const GabaritChirurgical = () => {
                   name="pa"
                   value={formData.signesVitaux.pa}
                   onChange={handleChange}
-                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 120/80"
                 />
               </div>
@@ -141,7 +141,7 @@ const GabaritChirurgical = () => {
                   name="fc"
                   value={formData.signesVitaux.fc}
                   onChange={handleChange}
-                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 80 bpm"
                 />
               </div>
@@ -153,7 +153,7 @@ const GabaritChirurgical = () => {
                   name="fr"
                   value={formData.signesVitaux.fr}
                   onChange={handleChange}
-                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 18/min"
                 />
               </div>
@@ -165,7 +165,7 @@ const GabaritChirurgical = () => {
                   name="spo2"
                   value={formData.signesVitaux.spo2}
                   onChange={handleChange}
-                  className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
                   placeholder="Ex: 98%"
                 />
               </div>
@@ -219,7 +219,7 @@ const GabaritChirurgical = () => {
               name="soinsPostOp"
               value={formData.soinsPostOp}
               onChange={handleChange}
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               rows="4"
               placeholder="Ex: Surveillance de la plaie, administration des analgésiques"
             />
@@ -232,7 +232,7 @@ const GabaritChirurgical = () => {
               name="recommandations"
               value={formData.recommandations}
               onChange={handleChange}
-              className="w-full p-4 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+              className="w-full p-4 text-lg text-black border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
               rows="4"
               placeholder="Ex: Repos, suivi médical dans les 48 heures"
             />
@@ -242,7 +242,7 @@ const GabaritChirurgical = () => {
           <div className="mt-8 text-center">
             <button
               type="submit"
-              className="px-6 py-3 bg-[#ff8811] text-black text-lg font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition duration-300"
+              className="px-6 py-3 bg-[#157291] text-white text-lg font-semibold rounded-lg hover:bg-[#7fc6a4] hover:text-black transition duration-300"
             >
               Soumettre
             </button>

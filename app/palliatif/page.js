@@ -29,10 +29,10 @@ const Palliatif = () => {
   };
 
   return (
-    <div className="bg-gray-400 min-h-screen">
+    <div className="bg-white min-h-screen">
       <Navbar />
       <div className="container mx-auto px-4 py-12">
-        <h1 className="text-3xl font-bold text-center text-[#0b263d]">Gabarit Soins Palliatifs</h1>
+        <h1 className="text-3xl font-bold text-center text-[#0b263d]">Formulaire - Soins Palliatifs</h1>
 
         <form onSubmit={handleSubmit} className="mt-8 text-lg space-y-6">
           <Input label="Nom du patient" name="patientName" value={formData.patientName} onChange={handleChange} />
@@ -73,7 +73,7 @@ const SubmitButton = () => (
   <div className="mt-6">
     <button
       type="submit"
-      className="px-9 py-3 bg-[#ff8811] text-black font-semibold rounded-lg hover:bg-blue-700 hover:text-white transition-colors"
+      className="px-9 py-3 bg-[#157291] text-white font-semibold rounded-lg hover:bg-[#7fc6a4] hover:text-black transition-colors"
     >
       Soumettre
     </button>

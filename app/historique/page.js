@@ -173,14 +173,12 @@ const NouveauPatientForm = () => {
 
         {/* Tétanos */}
         <input type="date" name="tetanos" value={formData.vaccination.tetanos} onChange={(e) => handleChange(e, 'vaccination')} className="input w-full" />
-
         {/* Pneumovax */}
         <label className="flex items-center">
           <input type="checkbox" name="pneumovax" checked={formData.vaccination.pneumovax} onChange={(e) => handleChange(e, 'vaccination')} className="mr-2" />
           Déjà reçu Pneumovax ?
         </label>
-
-        <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded-md">
+        <button type="submit" className="bg-[#157291] p-6 text-white px-6 py-2 rounded-md">
           Soumettre
         </button>
       </form>

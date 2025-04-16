@@ -221,7 +221,7 @@ const PremiereConsultation = () => {
           )}
 
           <div className="text-center mt-10">
-            <button type="submit" className="px-6 py-3 bg-blue-700 text-white rounded-lg hover:bg-blue-800">
+            <button type="submit" className="px-6 py-3 bg-[#157291] text-white text-lg font-semibold rounded-lg hover:bg-[#7fc6a4] hover:text-black">
               Soumettre
             </button>
           </div>
